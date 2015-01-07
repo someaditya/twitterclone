@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 
+2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="demo"  namespace="/" extends="struts-default">
+
+<action name="register" class="com.twitter.actions.Register">
+<result name="success">/loginn.jsp</result>
+<result name="input">/index.jsp</result>
+<result name="error">/index.jsp</result>
+</action>
+
+<action name="login" class="com.twitter.actions.Login">
+<result name="success">/welcome.jsp</result>
+</action>
+
+
+
+
+<action name="logout" class="com.twitter.actions.Logout">
+<result name="success">/loginn.jsp</result>
+</action>
+
+
+<action name="getprofiledetails" class="com.twitter.actions.GetProfileDetails" >
+<result name="success">/profile.jsp</result>
+</action>
+<action name="changepassword" class="com.twitter.actions.ChangePassword" >
+<result name="success">/profile.jsp</result>
+</action>
+
+
+<action name="TweetAction" class="com.twitter.actions.TweetAction">
+<result name="success">/welcome.jsp</result>
+</action>
+<action name="TweetAction1" class="com.twitter.actions.TweetAction">
+<result name="success">/welcome.jsp</result>
+</action>
+<action name="GetTweets" class="com.twitter.actions.DisplayTweet" method="displaytweet1">
+<result name="success">/displaytweetsnew.jsp</result>
+</action>
+<action name="GetTweets2" class="com.twitter.actions.DisplayTweet"  method="displaytweet2">
+<result name="success">/displaymytweets.jsp</result>
+</action>
+<action name="GetTweets3" class="com.twitter.actions.DisplayTweet"  method="displaytweet3">
+<result name="success">/home.jsp</result>
+</action>
+
+<action name="tweetedit" class="com.twitter.actions.EditTweet" >
+<result name="success">/profile.jsp</result>
+</action>
+
+<action name="tweetdelete" class="com.twitter.actions.DeleteTweet" >
+<result name="success">/profile.jsp</result>
+</action>
+
+<action name="AllTweets" class="com.twitter.actions.DisplayTweet"  method="displaytweet3">
+<result name="success">/displaytweets.jsp</result>
+<result name="input">/displaytweets.jsp</result>
+</action>
+<action name="searchAction" class="com.twitter.actions.SearchAction">
+<result name="success1">/searchtrends.jsp</result>
+<result name="success2">/searchresults.jsp</result>
+</action>
+<action name="viewprofile" class="com.twitter.actions.GetProfileDetails2" >
+<result name="success">/viewprofile.jsp</result>
+<result name="success1">/viewprofile1.jsp</result>
+</action>
+
+<action name="follow" class="com.twitter.actions.FollowAction" >
+<result name="success">/viewprofile.jsp</result>
+
+</action>
+
+<action name="UpdateDetails" class="com.twitter.actions.UpdateProfile">
+<result name="success">/profile.jsp</result>
+</action>
+
+</package>
+
+</struts> 
