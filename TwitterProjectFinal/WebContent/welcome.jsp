@@ -11,9 +11,9 @@ Welcome <%=session.getAttribute("userid").toString()%> <br>
 <form action="TweetAction" method="post">
 <table align="center">
 <tr>
-<td><iframe src="tweetcount.jsp" width=180px height=140px scrolling=no></iframe>&nbsp;&nbsp;&nbsp;</td> 
+<td><iframe src="tweetcount.jsp" width=180px height=150px scrolling=no></iframe>&nbsp;&nbsp;&nbsp;</td> 
 <td><textarea name="tweet_update" cols="70" rows="5" placeholder="What's on your mind ?"></textarea>&nbsp;&nbsp;&nbsp;</td>
-<td><iframe src="profile.jsp" width=180px height=140px scrolling=no></iframe></td>
+<td><iframe src="Trends.jsp" width=180px height=150px scrolling=no></iframe></td>
 </tr>
 <tr>
 <td></td>
@@ -21,6 +21,7 @@ Welcome <%=session.getAttribute("userid").toString()%> <br>
 </tr>
 
 </table>
+</form>
 <s:action name="AllTweets" executeResult="true" />
 </div>
 <%@ include file="bottom.jsp" %>

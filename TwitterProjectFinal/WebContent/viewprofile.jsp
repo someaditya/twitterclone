@@ -15,6 +15,8 @@
 <tr><td><a href="" >Tweets <%=session.getAttribute("tweet_count1").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
 <td><a href="following" >Following <%=session.getAttribute("following1").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
 <td><a href="followers" >Followers <%=session.getAttribute("followers1").toString()%></a></td>
+<td><a href="inbox.jsp" >Send Direct Message</a></td>
+
 </tr>
 </fieldset>  
 </s:iterator>

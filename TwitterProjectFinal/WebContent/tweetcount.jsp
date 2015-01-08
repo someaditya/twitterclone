@@ -41,9 +41,10 @@ String city = null;
          city = rs.getString("city");
          }
       	%>
+      	<center><img src="profileicon.jpg" height=30 width= 30></img><br>
       	<%=fname %>
       	<%=lname %><br>
-      	<%=city %><br><br>
+      	<%=city %></center>
 <table class="tweetlist"><tr>
 <td><a href="getprofiledetails" >Tweets <%=session.getAttribute("tweet_count").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
 <td><a href="getprofiledetails" >Following <%=session.getAttribute("following").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;

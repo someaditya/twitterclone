@@ -71,7 +71,7 @@ public class TweetAction extends ActionSupport{
 
 		stmt.setString(1,userid);
 		stmt.setString(2,tweetupdate);
-		stmt.executeUpdate();
+		int j = stmt.executeUpdate();
 		System.out.println("Inside TweetActionDAO.java");
 		PreparedStatement ps1=con.prepareStatement("select count(message) from tweet where user_id='"+userid+"';");
 		ResultSet rs1=ps1.executeQuery();
@@ -81,6 +81,41 @@ public class TweetAction extends ActionSupport{
 			session.setAttribute("tweet_count", count);
 			System.out.println("No ."+count);
 		}
+		
+        if (j!=0) {
+       	  System.out.println("<---");
+       	   String str[]=tweetupdate.split("[ ]+");
+        		for (int i = 0; i <str.length; i++)
+        		{   
+        			
+        			if(str[i].matches("#(.*)"))
+        			{
+        			System.out.println(str[i]);
+        			String trendtopic = str[i];
+        			String searchtrend = "select count(*) as count from tweet where message like ('%"+trendtopic+"%');";
+        			ResultSet rs3 = stmt.executeQuery(searchtrend);
+        			 if(rs3.next()){
+        				int tc = rs3.getInt("count");
+        				System.out.println(tc);
+        				if(tc>=3)
+        				{
+        				try
+        				{
+        				
+        					String trend = "insert into trends (tweet) values ('"+trendtopic+"');";
+        				   
+        			        stmt.executeUpdate(trend);
+        				}
+        				
+        				catch(Exception e)
+        				{
+        					e.printStackTrace();
+        				}
+        				}
+        			 }
+        			}
+        		}
+        }
 		return "success";
 		}catch(Exception e){
 		System.out.println(e);

@@ -14,6 +14,8 @@ Hello <%=session.getAttribute("userid").toString()%>,  Welcome to Your Profile <
 <tr><td><a href="getprofiledetails" >Tweets <%=session.getAttribute("tweet_count").toString()%></a></td>
 <td><a href="getprofiledetails" >Following <%=session.getAttribute("following").toString()%></a></td>
 <td><a href="getprofiledetails" >Followers <%=session.getAttribute("followers").toString()%></a></td>
+<td><a href="inbox.jsp" >Direct Message</a></td>
+
 </tr>
 
 
