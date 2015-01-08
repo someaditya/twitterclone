@@ -64,6 +64,13 @@ public class TweetAction extends ActionSupport{
 		String userid= (String)session.getAttribute("userid");
 		System.out.println(userid);
 		System.out.println("@  3   @ "+tweetupdate);
+		if(tweetupdate.trim().equals(""))
+		{
+			return "error";
+		}
+		else
+		{
+			
 		try{
 			
 		Connection con=ConnectionProvider.getConnection();
@@ -120,7 +127,9 @@ public class TweetAction extends ActionSupport{
 		}catch(Exception e){
 		System.out.println(e);
 		}
+		}
 		return "error";
 	}
+	
 
 }

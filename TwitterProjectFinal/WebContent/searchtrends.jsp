@@ -1,20 +1,19 @@
+<%@page import="com.twitter.DAO.ProfileDetailsDAO,com.twitter.details.ProfileDetailsBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="/struts-tags" prefix="s" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
+    pageEncoding="ISO-8859-1" import="com.twitter.DAO.*"%>
+    <%@ include file="top.jsp" %>
+Welcome <%=session.getAttribute("userid").toString()%> <br>
+<div align="center" id="searchresults" style="position:absolute; overflow:hidden; left:150px; top:150px; width:1000px; height:1000px; z-index:2">
+<h2 align="center">Search Results</h2>
 <s:iterator  value="list">
 <fieldset> 
 <s:property value="searchstring"/><br/>
 <s:property value="created"/><br/>
-<s:property value="userid"/><br/>
+<tr><s:url id="viewprofile" action="viewprofile">
+<td><s:param name="userid" value="%{userid}"></s:param></td>
+</s:url>
+<td><s:a href="%{viewprofile}"><s:property value="userid"/></s:a></td>
 </fieldset>
 </s:iterator>
-</body>
-</html>
+</div>
+<%@ include file="bottom.jsp" %>

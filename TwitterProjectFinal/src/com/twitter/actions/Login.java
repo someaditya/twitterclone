@@ -37,21 +37,11 @@ public String execute() throws SQLException{
 	session.put("password", getPassword());
 	
 if(logindao.validate(userid, password)){
-	//GetTweets gt = new GetTweets();
-	
-	
-	
-/*	if(profiledao.getdetails(userid, password)){
-		System.out.println("get details working");
-	}
-	else
-	{
-		System.out.println("get details not working");
-	}*/
+
 this.addActionError("You have successfully inserted data.");
 return "success";}
 else
-this.addActionError("Data is not successfully inserted");
+this.addActionError("Data incorrect");
 return "error";
 }
 public String logout(){

@@ -8,7 +8,7 @@ Welcome <%=session.getAttribute("userid").toString()%> <br>
 <center>
 
 
-<form action="TweetAction" method="post">
+<form action="TweetAction" method="post"  name="tweet" onsubmit="return validatetweet()">
 <table align="center">
 <tr>
 <td><iframe src="tweetcount.jsp" width=180px height=150px scrolling=no></iframe>&nbsp;&nbsp;&nbsp;</td> 
@@ -22,6 +22,15 @@ Welcome <%=session.getAttribute("userid").toString()%> <br>
 
 </table>
 </form>
+<script>
+function validatetweet()
+{   var x = document.forms["tweet"]["tweet_update"].value;
+     if (x == null || x == "") {
+    alert("You cannot tweet blank space");
+    return false;
+}
+	}
+</script>
 <s:action name="AllTweets" executeResult="true" />
 </div>
 <%@ include file="bottom.jsp" %>

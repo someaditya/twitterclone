@@ -16,7 +16,9 @@
 <s:form action="register" >
 <s:textfield name="userid" label="UserId"/>
 <s:password name="password" label="Password"/>
-<s:textfield name="fullname" label="FullName"/>
+<s:textfield name="fname" label="FullName"/>
+<s:textfield name="lname" label="Last Name"/>
+<s:textfield name="city" label="City"/>
 <s:textfield name="email" label="Email"/>
 <s:submit value="Submit"></s:submit>
 </s:form>

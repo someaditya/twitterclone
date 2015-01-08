@@ -13,8 +13,8 @@
 <font class="ws200">EmailId : </font><font class="ws201"><b><s:property value="email"/></b></font><br/> 
 </br> 
 <tr><td><a href="" >Tweets <%=session.getAttribute("tweet_count1").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
-<td><a href="following" >Following <%=session.getAttribute("following1").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
-<td><a href="followers" >Followers <%=session.getAttribute("followers1").toString()%></a></td>
+<td><a href="hefollowing.jsp" >Following <%=session.getAttribute("following1").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a href="hisfollowers.jsp" >Followers <%=session.getAttribute("followers1").toString()%></a></td>
 <td><a href="inbox.jsp" >Send Direct Message</a></td>
 
 </tr>

@@ -83,11 +83,15 @@ public String execute()
 			
 		else
 		{
+		if(search.trim().equals(""))
+			{
+				return "error";
+			}
+		else{
 		try{
 			
 		Connection con=ConnectionProvider.getConnection();
-		System.out.println("@  search   @ "+search);
-		PreparedStatement stmt=con.prepareStatement("SELECT * from person where fname OR lname like '%"+search+"%' AND user_id <>'"+userid+"';");
+		PreparedStatement stmt=con.prepareStatement("SELECT * from person where user_id<>'"+userid+"' and( fname like '%"+search+"%' OR lname like '%"+search+"%' OR user_id like '%"+search+"%');");
 
 		
 		ResultSet rs = stmt.executeQuery();
@@ -110,6 +114,7 @@ public String execute()
 		}
 }
 
+}
 }
 
 

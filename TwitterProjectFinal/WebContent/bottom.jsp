@@ -1,8 +1,19 @@
+<script>
+function validatesearch()
+{   var x = document.forms["searchform"]["search"].value;
+     if (x == null || x == "") {
+    alert("You cannot search blank");
+    return false;
+}
+	}
+</script>
+
 <div id="g_text1" style="position:absolute; overflow:hidden; left:300px; top:55px; width:400px; height:55px; z-index:5">
-<form action="searchAction" method="post">
-<tr><td><input type=text name="search"></td>
+<form action="searchAction" method="post" name="searchform" onsubmit="return validatesearch()">
+<tr><td><input type=text name="search" id="searchid"></td>
 <td><input type=submit class="searchbutton" value="Search"></td></tr></form>
 </div>
+
 <div id="container">
 <div id="g_image1" style="position:absolute; overflow:hidden; left:6px; top:21px; width:1130px; height:50px; z-index:1">
 <img src="bar00.png" alt="" title="" border=0 width=1130 height=50>
@@ -43,7 +54,7 @@
 <ul class="sub-menu">
                     <li><a href="changepassword.jsp">Change Password</a></li>
                     <li><a href="updateprofile.jsp">Update Profile</a></li>
-                 
+                    <li><a href="DeleteProfile.jsp">Delete Profile</a></li>
                 </ul></li>
                 
    <li>             
