@@ -32,7 +32,7 @@ public void setSession(Map session)
 { 
 	this.session = session;
 }
-public String execute() throws SQLException{
+public String execute() throws Exception{
 	session.put("userid", getUserid());
 	session.put("password", getPassword());
 	

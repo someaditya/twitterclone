@@ -1,5 +1,9 @@
 package com.twitter.DAO;
 import java.sql.Connection;
+
+import com.twitter.DAO.*;
+import com.twitter.hibernate.model.person;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,20 +11,36 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 import com.twitter.ConnectionManager.ConnectionProvider;
 public class LoginDAO {	 	
-	public boolean validate(String userid,String password) throws SQLException{
+	public boolean validate(String userid,String password) throws Exception{
 		Connection con=ConnectionProvider.getConnection();
-		PreparedStatement stmt=con.prepareStatement("select count(*) from person where user_id =? and password=?");
+		int i=0;
+		/*PreparedStatement stmt=con.prepareStatement("select count(*) from person where user_id =? and password=?");
 		stmt.setString(1,userid);
 		stmt.setString(2,password);
 		ResultSet rs=stmt.executeQuery();
-		int i=0;
+		
 		while(rs.next()){
 			i = rs.getInt(1);
-		}
-		 HttpSession session=ServletActionContext.getRequest().getSession(false);  
+		}*/
+		
+		
+		Session hsession =HibernateSessionFactory.currentSession();
+		
+		Query q = hsession.createQuery("from person where user_id=:userid and password=:password");
+		/*Query q = hsession.createQuery("from person where user_id='"+userid+"' and password='"+password+"'");*/
+		q.setParameter("userid",userid);
+		q.setParameter("password",password);
+		System.out.println("Hibernate Working"+q);
+		
+		person p = (person) q.uniqueResult();
+		
+		
+		HttpSession session=ServletActionContext.getRequest().getSession(false);  
 		PreparedStatement ps1=con.prepareStatement("select count(message) from tweet where user_id='"+userid+"';");
 		ResultSet rs1=ps1.executeQuery();
 		while(rs1.next()){
@@ -45,11 +65,12 @@ public class LoginDAO {
 			session.setAttribute("followers", count);
 			System.out.println("No . followers"+count);
 		}
-		if(i==0){
-			return false;
+		if(p!=null){
+			return true;
 		}
 		else{
-			return true;
+		
+			return false;
 		}
 	}
 }
