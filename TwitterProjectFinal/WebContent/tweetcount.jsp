@@ -46,9 +46,9 @@ String city = null;
       	<%=lname %><br>
       	<%=city %></center>
 <table class="tweetlist"><tr>
-<td><a href="getprofiledetails" >Tweets <%=session.getAttribute("tweet_count").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
-<td><a href="getprofiledetails" >Following <%=session.getAttribute("following").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
-<td><a href="getprofiledetails" >Followers <%=session.getAttribute("followers").toString()%></a></td>
+<td>Tweets <%=session.getAttribute("tweet_count").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
+<td>Following <%=session.getAttribute("following").toString()%></a></td>&nbsp;&nbsp;&nbsp;&nbsp;
+<td>Followers <%=session.getAttribute("followers").toString()%></a></td>
 </tr>
 </table>
 </body>

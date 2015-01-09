@@ -41,6 +41,7 @@ if(logindao.validate(userid, password)){
 this.addActionError("You have successfully inserted data.");
 return "success";}
 else
+	this.addActionMessage("Wrong Data");
 this.addActionError("Data incorrect");
 return "error";
 }

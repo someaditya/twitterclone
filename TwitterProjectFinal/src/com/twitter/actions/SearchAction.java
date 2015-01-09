@@ -55,7 +55,7 @@ public String execute()
 			try{
 				
 				Connection con=ConnectionProvider.getConnection();
-				PreparedStatement stmt=con.prepareStatement("SELECT * from tweet where message like '%"+search+"%';");
+				PreparedStatement stmt=con.prepareStatement("SELECT * from tweet where message like '%"+search+"%'order by created desc ;");
 
 				
 				ResultSet rs = stmt.executeQuery();

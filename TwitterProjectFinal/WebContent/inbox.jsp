@@ -1,26 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.sql.*,java.util.*,java.util.Date,java.io.* ;" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inbox</title>
-<style type="text/css">
- input{
-  width:220px;
-  height:50px;
- 
- 
- }
-</style>
-<LINK rel=StyleSheet HREF="background.css" TYPE="text/css">
-</head>
-<body>
-Threads
-<%
-String username = (String)session.getAttribute( "userid" );
+<%@ page import="java.sql.*,java.util.*,java.util.Date,java.io.*" %>
+    <%@ include file="top.jsp" %>
+Welcome <%=session.getAttribute("userid").toString()%> <br>
 
-String profile = (String)session.getAttribute( "profile" );
+<div align="center" id="mytweetsform" style="position:absolute; overflow:hidden; left:150px; top:150px; width:px; height:px; z-index:2">
+<% String username = (String)session.getAttribute( "userid" );
+
+String profile = (String)session.getAttribute( "profile" ); %>
+
+
+<center>
+
+
+ <form action="sendmessage.jsp" method="post" name="message" onsubmit="return validatemessage()">
+<table>
+<tr>
+  <th> Write the username of the Reciever </th>
+   <th> Write the Message </th>
+ </tr>
+ <tr>
+   
+ <td><input type="text" name ="reciever" value="<%=profile %>"class="input" /> </td>
+ <td><textarea name="message" cols="100" rows="4" placeholder="Write Your Message !!!!"></textarea> </td>			     
+<td> <input type="submit" value="Send" class="input"/></td>
+   
+ </tr>                      
+</table>
+
+     </form> 
+ </center>
+
+<h4>Threads</h4>
+
+<%
+
 response.setIntHeader("Refresh", 20);
 final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 final String DB_URL = "jdbc:mysql://localhost/twitterproject";
@@ -54,32 +66,13 @@ String user =null;
 %>
 
 <center>
-<label class ="label3"><%= uname1%> </label> to
-<label class ="label3"><%= uname2 %></label>          "
-<label class ="label3"><%= message %> </label>"
+<label class ="label7"><%= uname1%> </label> to
+<label class ="label6"><%= uname2 %></label>          "
+<label class ="label5"><%= message %> </label>"
 </center>
 <% } %>
 <br>
-<center>
 
-
- <form action="sendmessage.jsp" method="post" name="message" onsubmit="return validatemessage()">
-<table>
-<tr>
-  <th> Write the username of the Reciever </th>
-   <th> Write the Message </th>
- </tr>
- <tr>
-   <td>
- <td><input type="text" name ="reciever" value="<%=profile %>"class="input" /> </td>
- <td><textarea name="message" cols="100" rows="4" placeholder="Write Your Message !!!!"></textarea> </td>			     
-<td> <input type="submit" value="Send" class="input"/></td>
-   
- </tr>                      
-</table>
-
-     </form> 
- </center>
    
  
    <script>
@@ -98,5 +91,5 @@ String user =null;
    	}
    }
    </script>
-</body>
-</html>
+   </div>
+<%@ include file="bottom.jsp" %>

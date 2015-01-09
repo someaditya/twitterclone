@@ -3,7 +3,9 @@
     pageEncoding="ISO-8859-1" import="com.twitter.DAO.*"%>
     <%@ include file="top.jsp" %>
 Welcome <%=session.getAttribute("userid").toString()%> <br>
-
+<%
+String user =  session.getAttribute("userid").toString();
+%>
 <div align="center" id="mytweetsform" style="position:absolute; overflow:hidden; left:150px; top:150px; width:px; height:1000px; z-index:2">
 <center>
 
@@ -33,4 +35,34 @@ function validatetweet()
 </script>
 <s:action name="AllTweets" executeResult="true" />
 </div>
+<div class="name"></div>
 <%@ include file="bottom.jsp" %>
+<script>
+d = new Date();
+var s="<%=user%>";  
+ 
+document.write("Current Date : ",d);
+document.write("-----");
+function getCookie()
+    {
+                 return document.cookie;
+    }
+  var name = getCookie();
+   
+  var res = name.split("*");
+  if(s==res[0])
+  {	  
+  document.write("Last Visited on :",res[1]);
+  }
+  else
+  {
+	  document.write("Visting for first Time");  
+  }	  
+function setCookie()
+    {
+	    document.cookie = s +"*"+ d ;
+	
+	
+    }
+setCookie();
+</script>

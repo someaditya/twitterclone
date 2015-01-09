@@ -17,6 +17,12 @@
 <s:submit value="Submit"></s:submit>
 </s:form>
 
+<s:if test="hasActionErrors()">
+   <div class="errors">
+      <s:actionerror/>
+   </div>
+</s:if>
+
 <label class="label3"><a href="index.jsp">New User?Register Here</a></label>
 </div>
 </body>

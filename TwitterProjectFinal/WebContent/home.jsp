@@ -7,7 +7,7 @@ Welcome <%=session.getAttribute("userid").toString()%> <br>
 <div align="center" id="mytweetsform" style="position:absolute; overflow:hidden; left:150px; top:150px; width:px; height:px; z-index:2">
 
 
-<form action="TweetAction1" method="post" name="tweet" onsubmit="return validatetweet()">
+<form action="TweetAction" method="post" name="tweet" onsubmit="return validatetweet()">
 <table align="center">
 <tr>
 <td><iframe src="tweetcount.jsp" width=180px height=150px scrolling=no></iframe>&nbsp;&nbsp;&nbsp;</td> 
